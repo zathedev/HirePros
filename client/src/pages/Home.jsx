@@ -37,7 +37,11 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-image hide-mobile">
-            {/* You can place a high-quality local pro image here */}
+            <img 
+              src="https://gacservices.com/wp-content/uploads/2018/01/electrician-working-on-electrical-panel-circuit-breaker-box.jpg" 
+              alt="Professional Service Provider" 
+              className="hero-main-img"
+            />
             <div className="trust-badge">Verified Professionals 🇵🇰</div>
           </div>
         </div>

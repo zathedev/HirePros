@@ -11,7 +11,6 @@
 /* Hero Section */
 .fiverr-hero {
   background-color: var(--fiverr-dark-bg);
-  background-image: url('https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb59582277e951a62dff56fe0e271f2e-1590666579305/hero-hp-v2-1600-x1.png');
   background-size: cover;
   background-position: center;
   padding: 100px 0;
@@ -25,6 +24,34 @@
 }
 
 .hero-text { max-width: 650px; }
+
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero-main-img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 8px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.trust-badge {
+  position: absolute;
+  bottom: 40px;
+  left: -20px;
+  background: white;
+  color: var(--fiverr-dark-bg);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
 
 .hero-text h1 {
   font-size: 48px;
