@@ -1,7 +1,7 @@
-import { useState } from 'react'; // Added useState
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom'; // Import NavLink
 import { useAuth } from '../context/AuthContext';
-import { Search, Menu, X } from 'lucide-react'; // Added Menu and X
+import { Search, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -20,7 +20,6 @@ export default function Navbar() {
   return (
     <nav className="fiverr-navbar">
       <div className="nav-container">
-        {/* Mobile Hamburger - Left on mobile */}
         <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -37,27 +36,26 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Dynamic Navigation Right */}
         <div className={`nav-right ${isMobileMenuOpen ? 'active' : ''}`}>
-          <Link to="/jobs" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Explore</Link>
-          <Link to="/services" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
+          {/* Use NavLink instead of Link for automatic 'active' class */}
+          <NavLink to="/jobs" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Explore</NavLink>
+          <NavLink to="/services" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Services</NavLink>
           
           {user ? (
             <>
-              <Link to="/chat" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Messages</Link>
-              <Link to="/dashboard" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Dashboard</Link>
+              <NavLink to="/chat" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Messages</NavLink>
+              <NavLink to="/dashboard" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Dashboard</NavLink>
               <div className="user-profile-circle hide-mobile">
                 {user.name.charAt(0).toUpperCase()}
                 <div className="dropdown-content">
                   <button onClick={handleLogout}>Logout</button>
                 </div>
               </div>
-              {/* Mobile Logout Link */}
               <button className="nav-link mobile-only-logout" onClick={handleLogout}>Logout</button>
             </>
           ) : (
             <>
-              <Link to="/login" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Sign In</Link>
+              <NavLink to="/login" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Sign In</NavLink>
               <Link to="/register" className="btn-join" onClick={() => setIsMobileMenuOpen(false)}>Join</Link>
             </>
           )}

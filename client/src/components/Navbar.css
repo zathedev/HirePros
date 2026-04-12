@@ -246,6 +246,38 @@
     color: #ff4d4d; /* Fiverr red for logout on mobile */
   }
 }
+/* --- Active Link Styles --- */
+
+/* For Desktop */
+.nav-link.active {
+  color: var(--fiverr-green);
+  position: relative;
+}
+
+/* Optional: Add a small underline dot or bar for desktop active state */
+@media (min-width: 769px) {
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: var(--fiverr-green);
+    border-radius: 50%;
+  }
+}
+
+/* For Mobile Sidebar */
+@media (max-width: 768px) {
+  .nav-link.active {
+    background-color: #f1fdf7; /* Very light green background */
+    padding-left: 10px; /* Slight indent to show it's active */
+    border-left: 4px solid var(--fiverr-green);
+    border-bottom: 1px solid #f0f0f0; /* Maintain the separator */
+  }
+}
 
 @media (max-width: 768px) {
   .hide-mobile, .nav-search-bar { display: none; }
