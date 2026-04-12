@@ -11,7 +11,11 @@ export default function Services() {
   const [services, setServices] = useState([]);
   const [searchParams] = useSearchParams();
   const [filters, setFilters] = useState({
-    search: '', category: searchParams.get('category') || '', location: '', minPrice: '', maxPrice: ''
+    search: searchParams.get('search') || '', 
+    category: searchParams.get('category') || '', 
+    location: '', 
+    minPrice: '', 
+    maxPrice: ''
   });
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();

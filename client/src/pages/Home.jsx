@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search, PenTool, Zap, BookOpen, Wind, Paintbrush, Car, Trash2, Monitor, CheckCircle } from 'lucide-react';
 import './Home.css';
 import Footer from './../components/Footer';
@@ -15,6 +16,15 @@ const categories = [
 ];
 
 export default function Home() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      navigate(`/services?search=${encodeURIComponent(searchTerm.trim())}`);
+    }
+  };
+
   return (
     <div className="home-wrapper">
       {/* Fiverr Style Hero */}
@@ -25,9 +35,14 @@ export default function Home() {
             <div className="hero-search">
               <div className="search-input-group">
                 <Search className="search-icon" size={20} />
-                <input type="text" placeholder='Try "plumber in Karachi"' />
+                <input 
+                  type="text" 
+                  placeholder='Try "plumber in Karachi"' 
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
               </div>
-              <button className="search-submit">Search</button>
+              <button className="search-submit" onClick={handleSearch}>Search</button>
             </div>
             <div className="popular-tags">
               <span>Popular:</span>

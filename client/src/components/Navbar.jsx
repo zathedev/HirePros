@@ -8,6 +8,14 @@ export default function Navbar() {
   const { user, logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (e) => {
+    if ((e.key === 'Enter' || e.type === 'click') && searchTerm.trim()) {
+      navigate(`/services?search=${encodeURIComponent(searchTerm.trim())}`);
+      setSearchTerm(''); // Clear after search
+    }
+  };
 
   const handleLogout = () => {
     logout();
@@ -29,8 +37,14 @@ export default function Navbar() {
             HirePros<span className="dot">.</span>
           </Link>
           <div className="nav-search-bar">
-            <input type="text" placeholder="What service are you looking for today?" />
-            <button className="search-btn">
+            <input 
+              type="text" 
+              placeholder="What service are you looking for today?" 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleSearch}
+            />
+            <button className="search-btn" onClick={handleSearch}>
               <Search size={18} strokeWidth={2.5} />
             </button>
           </div>
