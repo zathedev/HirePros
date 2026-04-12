@@ -15,12 +15,13 @@ export default function Footer() {
           <div className="footer-column">
             <h5>Categories</h5>
             <ul>
-              <li><Link to="/services?category=Graphics">Graphics & Design</Link></li>
-              <li><Link to="/services?category=Digital">Digital Marketing</Link></li>
-              <li><Link to="/services?category=Writing">Writing & Translation</Link></li>
-              <li><Link to="/services?category=Video">Video & Animation</Link></li>
-              <li><Link to="/services?category=IT">Music & Audio</Link></li>
-              <li><Link to="/services?category=Programming">Programming & Tech</Link></li>
+              <li><Link to="/services?category=Plumbing">Plumbing</Link></li>
+              <li><Link to="/services?category=Electrician">Electrician</Link></li>
+              <li><Link to="/services?category=Tutoring">Tutoring</Link></li>
+              <li><Link to="/services?category=AC Repair">AC Repair</Link></li>
+              <li><Link to="/services?category=Car Repair">Car Repair</Link></li>
+              <li><Link to="/services?category=Cleaning">Cleaning</Link></li>
+              <li><Link to="/services?category=IT Support">IT Support</Link></li>
             </ul>
           </div>
 

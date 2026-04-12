@@ -16,6 +16,7 @@ export default function Services() {
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
 
+  // Fetch services based on filters
   const fetchServices = async () => {
     setLoading(true);
     try {
@@ -29,8 +30,12 @@ export default function Services() {
     }
   };
 
-  useEffect(() => { fetchServices(); }, []);
+  // Re-fetch services when filters change
+  useEffect(() => {
+    fetchServices();
+  }, [filters]);  // This will trigger fetchServices every time the filters change
 
+  // Handle filter changes
   const handleFilterChange = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.value });
   };
@@ -81,9 +86,21 @@ export default function Services() {
             </div>
 
             <div className="price-range-inputs">
-              <input type="number" name="minPrice" placeholder="Min Rs." value={filters.minPrice} onChange={handleFilterChange} />
+              <input 
+                type="number" 
+                name="minPrice" 
+                placeholder="Min Rs." 
+                value={filters.minPrice} 
+                onChange={handleFilterChange} 
+              />
               <span>-</span>
-              <input type="number" name="maxPrice" placeholder="Max Rs." value={filters.maxPrice} onChange={handleFilterChange} />
+              <input 
+                type="number" 
+                name="maxPrice" 
+                placeholder="Max Rs." 
+                value={filters.maxPrice} 
+                onChange={handleFilterChange} 
+              />
             </div>
 
             <button className="btn-fiverr-dark" onClick={fetchServices}>
