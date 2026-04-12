@@ -10,6 +10,7 @@
   display: flex;
   height: calc(100vh - 80px); /* Adjusted for Fiverr Nav height */
   background: white;
+  overflow: hidden;
 }
 
 /* Sidebar Styling */
@@ -85,6 +86,7 @@
   justify-content: center;
   font-weight: 700;
   font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .contact-avatar.small { width: 40px; height: 40px; font-size: 16px; }
@@ -93,11 +95,11 @@
 .contact-info { flex: 1; overflow: hidden; }
 .contact-name-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
 .name { font-weight: 700; color: var(--fiverr-dark); font-size: 14px; }
-.time { font-size: 12px; color: var(--fiverr-gray); }
+.time { font-size: 11px; color: var(--fiverr-gray); }
 .last-msg { font-size: 13px; color: var(--fiverr-gray); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* Chat Window Styling */
-.chat-window { flex: 1; display: flex; flex-direction: column; background: white; }
+.chat-window { flex: 1; display: flex; flex-direction: column; background: #f4f7f6; }
 
 .chat-header {
   padding: 15px 25px;
@@ -105,6 +107,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: white;
+  z-index: 10;
 }
 
 .header-left { display: flex; gap: 12px; align-items: center; }
@@ -115,8 +119,13 @@
   flex: 1;
   padding: 20px;
   overflow-y: auto;
-  background: #ffffff;
+  background-color: #e5ddd5;
+  background-image: url("https://www.transparenttextures.com/patterns/cube.png");
+  display: flex;
+  flex-direction: column;
 }
+
+.messages-list { display: flex; flex-direction: column; }
 
 .safety-tip {
   text-align: center;
@@ -124,22 +133,34 @@
   color: var(--fiverr-gray);
   background: var(--fiverr-bg);
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 30px;
+  border: 1px solid var(--fiverr-border);
+  align-self: center;
+  max-width: 80%;
 }
 
 .message-row { display: flex; gap: 10px; margin-bottom: 20px; max-width: 80%; }
 .message-row.mine { margin-left: auto; flex-direction: row-reverse; }
 
 .message-bubble {
-  padding: 12px 16px;
-  border-radius: 8px;
+  padding: 10px 14px;
   font-size: 15px;
   line-height: 1.4;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  position: relative;
 }
 
-.mine .message-bubble { background: var(--fiverr-dark); color: white; }
-.theirs .message-bubble { background: #efeff0; color: var(--fiverr-dark); }
+.mine .message-bubble { 
+  background: #dcf8c6; 
+  color: #303030; 
+  border-radius: 12px 0px 12px 12px;
+}
+.theirs .message-bubble { 
+  background: white; 
+  color: var(--fiverr-dark); 
+  border-radius: 0px 12px 12px 12px;
+}
 
 .message-meta {
   font-size: 11px;
@@ -156,6 +177,7 @@
 .chat-input-area {
   padding: 20px;
   border-top: 1px solid var(--fiverr-border);
+  background: white;
 }
 
 .input-controls {
@@ -165,6 +187,11 @@
   border-radius: 8px;
   padding: 10px;
   gap: 10px;
+  transition: border-color 0.2s;
+}
+
+.input-controls:focus-within {
+  border-color: var(--fiverr-green);
 }
 
 .input-controls textarea {
@@ -197,3 +224,18 @@
 
 .send-btn:disabled { color: var(--fiverr-border); cursor: not-allowed; }
 .send-btn:hover:not(:disabled) { transform: scale(1.1); }
+
+.chat-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--fiverr-gray);
+  background: #f7f7f7;
+}
+
+.empty-icon {
+  margin-bottom: 20px;
+  color: var(--fiverr-border);
+}

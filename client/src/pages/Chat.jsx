@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { io } from 'socket.io-client';
 import { useAuth } from '../context/AuthContext';
-import { SendHorizontal, Paperclip, MoreVertical, Search, CheckCheck } from 'lucide-react';
+import { SendHorizontal, Paperclip, MoreVertical, Search, CheckCheck, MessageSquare } from 'lucide-react';
 import './Chat.css';
 
 export default function Chat() {
@@ -128,7 +128,7 @@ export default function Chat() {
       <div className="chat-window">
         {!activeUserId ? (
           <div className="chat-empty">
-            <div className="empty-icon">💬</div>
+            <div className="empty-icon"><MessageSquare size={64} /></div>
             <h3>Select a conversation</h3>
             <p>Direct communication is the key to a great project.</p>
           </div>
@@ -151,7 +151,8 @@ export default function Chat() {
               <div className="safety-tip">
                 Tip: For your safety, keep all payments and communication within HirePros.
               </div>
-              {messages.map((msg, i) => {
+              <div className="messages-list">
+                {messages.map((msg, i) => {
                 const isMine = (msg.sender === user.id || msg.sender?._id === user.id || msg.senderId === user.id);
                 return (
                   <div key={i} className={`message-row ${isMine ? 'mine' : 'theirs'}`}>
@@ -166,6 +167,7 @@ export default function Chat() {
                   </div>
                 );
               })}
+              </div>
               <div ref={messagesEndRef} />
             </div>
 
