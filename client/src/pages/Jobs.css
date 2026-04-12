@@ -1,13 +1,15 @@
 :root {
   --fiverr-green: #1dbf73;
+  --fiverr-green-light: #e8f9f1;
   --fiverr-dark: #404145;
+  --fiverr-dark-hover: #222325;
   --fiverr-gray: #74767e;
   --fiverr-border: #e4e5e7;
   --fiverr-light-bg: #f7f7f7;
 }
 
 .jobs-browse-wrapper {
-  background-color: #fff;
+  background-color: #fbfbfb;
   padding: 30px 0 60px;
   min-height: 80vh;
 }
@@ -35,29 +37,37 @@
 .header-left p {
   color: var(--fiverr-gray);
   margin-top: 5px;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 /* Filter Bar */
 .fiverr-filter-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  padding: 15px 0;
-  border-top: 1px solid var(--fiverr-border);
-  border-bottom: 1px solid var(--fiverr-border);
+  gap: 15px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--fiverr-border);
+  border-radius: 8px;
   margin-bottom: 40px;
   align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .filter-item {
   display: flex;
   align-items: center;
-  border: 1px solid var(--fiverr-border);
+  border: 1px solid #c5c6c9;
   border-radius: 4px;
   padding: 8px 12px;
   gap: 10px;
   color: var(--fiverr-gray);
+  transition: border-color 0.2s;
+}
+
+.filter-item:focus-within {
+  border-color: var(--fiverr-dark);
 }
 
 .search-box { flex: 1; min-width: 250px; }
@@ -80,10 +90,15 @@
   position: relative;
   display: flex;
   align-items: center;
-  border: 1px solid var(--fiverr-border);
+  border: 1px solid #c5c6c9;
   border-radius: 4px;
   background: #fff;
   padding-right: 10px;
+  transition: border-color 0.2s;
+}
+
+.custom-select:focus-within {
+  border-color: var(--fiverr-dark);
 }
 
 .custom-select select {
@@ -99,9 +114,14 @@
 .budget-inputs {
   display: flex;
   align-items: center;
-  border: 1px solid var(--fiverr-border);
+  border: 1px solid #c5c6c9;
   border-radius: 4px;
   padding: 0 10px;
+  transition: border-color 0.2s;
+}
+
+.budget-inputs:focus-within {
+  border-color: var(--fiverr-dark);
 }
 
 .budget-inputs input {
@@ -123,6 +143,11 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-apply-filters:hover {
+  background: var(--fiverr-dark-hover);
 }
 
 /* Gig Card Grid */
@@ -138,18 +163,19 @@
   border: 1px solid var(--fiverr-border);
   border-radius: 4px;
   background: #fff;
-  transition: box-shadow 0.2s;
+  transition: all 0.2s ease-in-out;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .gig-card:hover {
-  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
 }
 
 .gig-card-header {
-  padding: 12px;
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -157,9 +183,9 @@
 
 .user-profile { display: flex; align-items: center; gap: 10px; }
 .avatar-placeholder {
-  width: 32px;
-  height: 32px;
-  background: #ffbe5b;
+  width: 36px;
+  height: 36px;
+  background: #fc832b;
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -175,21 +201,21 @@
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 2px 8px;
-  border-radius: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
 }
-.status-badge.open { background: #d4f3e5; color: var(--fiverr-green); }
+.status-badge.open { background: var(--fiverr-green-light); color: var(--fiverr-green); }
 
 .gig-card-body {
-  padding: 0 12px 15px;
+  padding: 0 16px 20px;
   flex: 1;
 }
 
 .gig-title {
   font-size: 16px;
-  font-weight: 400;
-  line-height: 1.4;
-  margin-bottom: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 8px;
   color: var(--fiverr-dark);
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -202,7 +228,7 @@
 .gig-desc {
   font-size: 14px;
   color: var(--fiverr-gray);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   line-height: 1.5;
   height: 42px;
   overflow: hidden;
@@ -210,16 +236,20 @@
 
 .gig-meta {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   font-size: 12px;
-  color: var(--fiverr-gray);
+  color: #62646a;
+  background: #f5f5f5;
+  padding: 8px 12px;
+  border-radius: 4px;
+  width: fit-content;
 }
 
 .gig-meta span { display: flex; align-items: center; gap: 4px; }
 
 .gig-card-footer {
   border-top: 1px solid var(--fiverr-border);
-  padding: 10px 12px;
+  padding: 12px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;

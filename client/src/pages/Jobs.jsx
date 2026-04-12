@@ -39,8 +39,8 @@ export default function Jobs() {
         {/* Header Section */}
         <header className="browse-header">
           <div className="header-left">
-            <h1>Results for <span>Local Services</span></h1>
-            <p>{jobs.length} services available in Pakistan</p>
+            <h1>Service <span>Requests</span></h1>
+            <p>Found {jobs.length} projects looking for professionals in Pakistan</p>
           </div>
           {user?.role === 'customer' && (
             <Link to="/post-job" className="btn-fiverr-primary">+ Post a Job Request</Link>
@@ -125,7 +125,7 @@ export default function Jobs() {
                       <div className="avatar-placeholder">{job.postedBy?.name?.[0]}</div>
                       <div className="user-info">
                         <span className="username">{job.postedBy?.name}</span>
-                        <span className="user-type">Client</span>
+                        <span className="user-type">Verified Client</span>
                       </div>
                     </div>
                     <span className={`status-badge ${job.status}`}>
