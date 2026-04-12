@@ -8,10 +8,14 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6
 import './Footer.css';
 
 export default function Footer() {
+  // Get the current year
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="fiverr-footer">
       <div className="container">
         <div className="footer-top">
+          {/* ... Categories, About, Support, Community columns stay the same ... */}
           <div className="footer-column">
             <h5>Categories</h5>
             <ul>
@@ -61,12 +65,13 @@ export default function Footer() {
         <div className="footer-bottom">
           <div className="footer-bottom-left">
             <span className="footer-logo">HirePros<span>.</span></span>
-            <span className="copyright">© HirePros International Ltd. 2024</span>
+            {/* Dynamic year injected here */}
+            <span className="copyright">© HirePros International Ltd. {currentYear}</span>
           </div>
 
           <div className="footer-bottom-right">
             <div className="social-links">
-              <FaXTwitter  size={20} />
+              <FaXTwitter size={20} />
               <FaFacebook size={20} />
               <FaLinkedin size={20} />
               <FaInstagram size={20} />
