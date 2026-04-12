@@ -17,6 +17,11 @@
   top: 0;
   z-index: 1000;
   font-family: 'Macan', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.fiverr-navbar.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .nav-container {
@@ -46,11 +51,16 @@
 
 .nav-search-bar {
   display: flex;
-  border: 1px solid var(--fiverr-border);
+  border: 1px solid #c5c6c9;
   border-radius: 4px;
   width: 100%;
   max-width: 450px;
   overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.nav-search-bar:focus-within {
+  border-color: var(--fiverr-dark);
 }
 
 .nav-search-bar input {
@@ -58,6 +68,7 @@
   padding: 10px 15px;
   width: 100%;
   outline: none;
+  font-size: 15px;
 }
 
 .search-btn {
@@ -66,6 +77,14 @@
   color: white;
   padding: 0 15px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.search-btn:hover {
+  background: #222325;
 }
 
 /* Links and Buttons */
@@ -112,21 +131,55 @@
   font-weight: bold;
   cursor: pointer;
   position: relative; /* Important for absolute positioning of dropdown */
+  transition: transform 0.2s ease;
+}
+
+.user-profile-circle:hover {
+  transform: scale(1.05);
 }
 
 /* Hidden by default */
 .dropdown-content {
   display: none; 
   position: absolute;
-  top: 40px; /* Moves it below the avatar */
+  top: 44px; /* Moves it below the avatar */
   right: 0;
   background-color: white;
-  min-width: 150px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  min-width: 180px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.05);
   z-index: 1001;
-  border-radius: 4px;
+  border-radius: 8px;
   border: 1px solid var(--fiverr-border);
-  padding: 10px 0;
+  padding: 8px 0;
+  animation: fadeIn 0.2s ease;
+}
+
+.dropdown-header {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdown-label {
+  font-size: 11px;
+  color: var(--fiverr-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-header strong {
+  font-size: 14px;
+  color: var(--fiverr-dark);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: var(--fiverr-border);
+  margin: 4px 0;
 }
 
 /* Show the dropdown when hovering over the avatar */
@@ -136,23 +189,35 @@
 }
 
 /* Logout Button Styling */
-.dropdown-content button {
+.dropdown-item {
   background: none;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 16px;
   text-align: left;
   width: 100%;
   font-family: inherit;
   font-size: 14px;
-  color: var(--fiverr-gray);
+  color: var(--fiverr-dark);
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.dropdown-content button:hover {
-  background-color: #f7f7f7;
-  color: var(--fiverr-dark);
+.dropdown-item:hover {
+  background-color: #f1fdf7;
+  color: var(--fiverr-green);
+}
+
+.dropdown-item.logout {
+  color: #ff4d4d;
+}
+
+.dropdown-item.logout:hover {
+  background-color: #fff5f5;
+  color: #ff4d4d;
 }
 
 /* Invisible bridge to prevent dropdown from closing when moving mouse from avatar to menu */
@@ -165,6 +230,22 @@
   height: 10px;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 998;
+}
+
 /* --- Desktop vs Mobile Utilities --- */
 .mobile-menu-btn {
   display: none;
@@ -172,6 +253,10 @@
   border: none;
   cursor: pointer;
   color: var(--fiverr-dark);
+}
+
+.mobile-only {
+  display: none;
 }
 
 .mobile-only-logout {
@@ -182,6 +267,13 @@
   padding: 0;
   font-family: inherit;
   cursor: pointer;
+}
+
+.mobile-nav-header {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 20px 0;
+  color: var(--fiverr-dark);
 }
 
 /* --- Responsive Adjustments --- */
@@ -201,7 +293,15 @@
     order: 2;
     font-size: 24px;
     margin-right: auto;
-    margin-left: 15px;
+    margin-left: 10px;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .nav-overlay {
+    display: block;
   }
 
   .nav-right {
