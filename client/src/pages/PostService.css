@@ -1,0 +1,195 @@
+:root {
+  --fiverr-green: #1dbf73;
+  --fiverr-dark: #404145;
+  --fiverr-gray: #74767e;
+  --fiverr-border: #e4e5e7;
+  --fiverr-bg: #f7f7f7;
+}
+
+.gig-creation-page {
+  background-color: var(--fiverr-bg);
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.gig-container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.gig-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 30px;
+}
+
+.gig-main-card {
+  background: #fff;
+  border: 1px solid var(--fiverr-border);
+  border-radius: 4px;
+  padding: 40px;
+}
+
+/* Header */
+.step-indicator {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--fiverr-green);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.gig-header h1 {
+  font-size: 28px;
+  color: var(--fiverr-dark);
+  margin-bottom: 8px;
+}
+
+.gig-header h1 span {
+  font-family: serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.gig-header p {
+  color: var(--fiverr-gray);
+  margin-bottom: 30px;
+}
+
+/* Form Styles */
+.form-section {
+  margin-bottom: 25px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.form-section label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--fiverr-dark);
+}
+
+.char-count { font-size: 12px; color: #b5b6ba; }
+
+/* Fiverr Special "I will" Input */
+.input-with-prefix {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--fiverr-border);
+  border-radius: 4px;
+  padding: 0 15px;
+}
+
+.input-with-prefix .prefix {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--fiverr-dark);
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.input-with-prefix input {
+  border: none !important;
+  font-size: 18px;
+  padding: 12px 0;
+  width: 100%;
+  color: var(--fiverr-green);
+  font-weight: 600;
+}
+
+.field-hint {
+  display: block;
+  font-size: 12px;
+  color: var(--fiverr-gray);
+  margin-top: 5px;
+}
+
+.form-row { display: flex; gap: 20px; }
+.flex-1 { flex: 1; }
+
+/* Price Wrapper */
+.price-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--fiverr-border);
+  border-radius: 4px;
+  width: 200px;
+  overflow: hidden;
+}
+
+.currency-unit {
+  background: #f1f1f2;
+  padding: 12px;
+  font-weight: 700;
+  color: var(--fiverr-gray);
+  border-right: 1px solid var(--fiverr-border);
+}
+
+.price-input-wrapper input {
+  border: none !important;
+  padding: 10px;
+  width: 100%;
+  font-weight: 700;
+}
+
+/* Sidebar */
+.guideline-card {
+  background: white;
+  border: 1px solid var(--fiverr-border);
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.guideline-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.guideline-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.guideline-card li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--fiverr-gray);
+  margin-bottom: 12px;
+}
+
+.pro-tip {
+  margin-top: 20px;
+  padding: 15px;
+  background: #eefbff;
+  border-radius: 4px;
+  border: 1px solid #ccefff;
+  font-size: 13px;
+  color: #006687;
+}
+
+.btn-publish {
+  width: auto;
+  padding: 12px 30px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .gig-layout { grid-template-columns: 1fr; }
+  .form-row { flex-direction: column; gap: 0; }
+  .gig-sidebar { order: -1; }
+}

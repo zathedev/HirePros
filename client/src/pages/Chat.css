@@ -1,0 +1,199 @@
+:root {
+  --fiverr-green: #1dbf73;
+  --fiverr-dark: #404145;
+  --fiverr-gray: #74767e;
+  --fiverr-border: #e4e5e7;
+  --fiverr-bg: #f7f7f7;
+}
+
+.chat-layout {
+  display: flex;
+  height: calc(100vh - 80px); /* Adjusted for Fiverr Nav height */
+  background: white;
+}
+
+/* Sidebar Styling */
+.chat-sidebar {
+  width: 350px;
+  border-right: 1px solid var(--fiverr-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--fiverr-border);
+}
+
+.chat-sidebar-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--fiverr-dark);
+}
+
+.search-contacts {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid var(--fiverr-border);
+  border-radius: 4px;
+  padding: 8px 12px;
+  gap: 10px;
+  color: var(--fiverr-gray);
+}
+
+.search-contacts input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+.contact-item {
+  display: flex;
+  padding: 15px 20px;
+  gap: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f2f2f2;
+  transition: background 0.1s;
+}
+
+.contact-item:hover { background: #fafafa; }
+.contact-item.active { background: #f1fdf7; border-left: 4px solid var(--fiverr-green); }
+
+.avatar-wrapper { position: relative; }
+.online-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background: var(--fiverr-green);
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.contact-avatar {
+  width: 48px;
+  height: 48px;
+  background: #fc832b;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.contact-avatar.small { width: 40px; height: 40px; font-size: 16px; }
+.contact-avatar.mini { width: 30px; height: 30px; font-size: 12px; }
+
+.contact-info { flex: 1; overflow: hidden; }
+.contact-name-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+.name { font-weight: 700; color: var(--fiverr-dark); font-size: 14px; }
+.time { font-size: 12px; color: var(--fiverr-gray); }
+.last-msg { font-size: 13px; color: var(--fiverr-gray); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Chat Window Styling */
+.chat-window { flex: 1; display: flex; flex-direction: column; background: white; }
+
+.chat-header {
+  padding: 15px 25px;
+  border-bottom: 1px solid var(--fiverr-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left { display: flex; gap: 12px; align-items: center; }
+.user-name { display: block; font-weight: 700; color: var(--fiverr-dark); }
+.user-status { font-size: 12px; color: var(--fiverr-gray); }
+
+.messages-area {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+.safety-tip {
+  text-align: center;
+  font-size: 12px;
+  color: var(--fiverr-gray);
+  background: var(--fiverr-bg);
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+.message-row { display: flex; gap: 10px; margin-bottom: 20px; max-width: 80%; }
+.message-row.mine { margin-left: auto; flex-direction: row-reverse; }
+
+.message-bubble {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.mine .message-bubble { background: var(--fiverr-dark); color: white; }
+.theirs .message-bubble { background: #efeff0; color: var(--fiverr-dark); }
+
+.message-meta {
+  font-size: 11px;
+  color: var(--fiverr-gray);
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.read-receipt { color: var(--fiverr-green); }
+
+/* Input Area Styling */
+.chat-input-area {
+  padding: 20px;
+  border-top: 1px solid var(--fiverr-border);
+}
+
+.input-controls {
+  display: flex;
+  align-items: flex-end;
+  border: 1px solid var(--fiverr-border);
+  border-radius: 8px;
+  padding: 10px;
+  gap: 10px;
+}
+
+.input-controls textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 5px;
+  max-height: 100px;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.attach-btn, .icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--fiverr-gray);
+  cursor: pointer;
+  padding: 5px;
+}
+
+.send-btn {
+  background: transparent;
+  border: none;
+  color: var(--fiverr-green);
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s;
+}
+
+.send-btn:disabled { color: var(--fiverr-border); cursor: not-allowed; }
+.send-btn:hover:not(:disabled) { transform: scale(1.1); }

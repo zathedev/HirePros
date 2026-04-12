@@ -1,0 +1,104 @@
+:root {
+  --fiverr-green: #1dbf73;
+  --fiverr-green-dark: #19a463;
+  --fiverr-dark: #404145;
+  --fiverr-gray: #74767e;
+  --fiverr-border: #e4e5e7;
+}
+
+.auth-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #ffffff; /* Fiverr uses clean white backgrounds */
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem;
+  border: 1px solid var(--fiverr-border);
+  border-radius: 8px; /* Fiverr uses smaller border radius */
+  box-shadow: none; /* Keep it flat and professional */
+}
+
+.auth-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--fiverr-dark);
+  margin-bottom: 8px;
+}
+
+.auth-sub {
+  color: var(--fiverr-gray);
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+/* Password Toggle Container */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 45px !important; /* Space for the icon */
+}
+
+.eye-icon {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  color: var(--fiverr-gray);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.eye-icon:hover {
+  color: var(--fiverr-dark);
+}
+
+/* Fiverr Button Style */
+.btn-fiverr {
+  width: 100%;
+  background-color: var(--fiverr-dark);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-fiverr:hover {
+  background-color: #222325;
+}
+
+.btn-fiverr:disabled {
+  background-color: var(--fiverr-border);
+  cursor: not-allowed;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--fiverr-gray);
+}
+
+.auth-footer a {
+  color: var(--fiverr-green);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}

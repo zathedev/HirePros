@@ -1,0 +1,138 @@
+.fiverr-footer {
+  background-color: #fff;
+  border-top: 1px solid #e4e5e7;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-family: 'Macan', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #e4e5e7;
+}
+
+.footer-column h5 {
+  color: #404145;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #74767e;
+  font-size: 16px;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+  color: #404145;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.footer-bottom-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 900;
+  color: #74767e;
+  letter-spacing: -1px;
+}
+
+.footer-logo span {
+  color: #1dbf73; /* Fiverr Green */
+}
+
+.copyright {
+  color: #b5b6ba;
+  font-size: 14px;
+}
+
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+  color: #74767e;
+  cursor: pointer;
+}
+
+.social-links svg:hover {
+  color: #404145;
+}
+
+.settings {
+  display: flex;
+  gap: 15px;
+}
+
+.settings button {
+  background: none;
+  border: none;
+  color: #74767e;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.settings button:hover {
+  color: #1dbf73;
+}
+
+.accessibility-btn {
+  border: 1px solid #74767e !important;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .footer-bottom-left {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .footer-bottom-right {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
