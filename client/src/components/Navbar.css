@@ -165,6 +165,88 @@
   height: 10px;
 }
 
+/* --- Desktop vs Mobile Utilities --- */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fiverr-dark);
+}
+
+.mobile-only-logout {
+  display: none;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+  .nav-search-bar {
+    display: none; /* Hide search on smaller tablets/phones to save space */
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+    order: 1;
+  }
+
+  .fiverr-logo {
+    order: 2;
+    font-size: 24px;
+    margin-right: auto;
+    margin-left: 15px;
+  }
+
+  .nav-right {
+    position: fixed;
+    top: 80px;
+    left: -100%; /* Hidden by default */
+    flex-direction: column;
+    background: white;
+    width: 100%;
+    height: calc(100vh - 80px);
+    gap: 0;
+    transition: 0.3s ease-in-out;
+    border-top: 1px solid var(--fiverr-border);
+    align-items: flex-start; /* Align links to left */
+    padding: 20px;
+    z-index: 999;
+  }
+
+  .nav-right.active {
+    left: 0; /* Slide in */
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 18px;
+  }
+
+  .btn-join {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .mobile-only-logout {
+    display: block;
+    color: #ff4d4d; /* Fiverr red for logout on mobile */
+  }
+}
+
 @media (max-width: 768px) {
   .hide-mobile, .nav-search-bar { display: none; }
 }
