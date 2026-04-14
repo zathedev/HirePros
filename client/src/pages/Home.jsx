@@ -52,7 +52,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-image hide-mobile">
-            <img 
+            <img
               src="https://gacservices.com/wp-content/uploads/2018/01/electrician-working-on-electrical-panel-circuit-breaker-box.jpg" 
               alt="Professional Service Provider" 
               className="hero-main-img"
@@ -97,6 +97,10 @@ export default function Home() {
             </div>
           </div>
           <div className="prop-video-placeholder">
+            <img
+              src="https://thumbs.dreamstime.com/b/technician-repairing-air-conditioner-happy-young-african-male-technician-repairing-air-conditioner-211307615.jpg"
+              alt="Professional at work"
+              className="prop-image"/>
             {/* Visual element like an image of a professional at work */}
           </div>
         </div>
